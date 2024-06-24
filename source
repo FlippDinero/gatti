@@ -201,3 +201,39 @@ __index = hookmetamethod(game,"__index", function(Obj, Property)
     end
     return __index(Obj, Property)
 end)
+
+-- // Libraries
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/FlippDinero/Notification/main/Notification%20loader"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/FlippDinero/Notifications/main/Notification%20Loader"))()
+
+-- // Notification Function
+local function SendNotification(text)
+    Notification:Notify(
+        {Title = "VERSION 10", Description = "IMPERIAL - "..text},
+        {OutlineColor = Color3.fromRGB(255,215,0),Time = 2, Type = "image"},
+        {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(255,215,0)}
+    )
+end 
+
+
+-- // Call notification function
+if uwuMain.Notifications then
+    SendNotification("INJECTING")
+    wait(3.5)
+    SendNotification("INJECTED")
+end
+
+-- 360 on bind made by prime >_<
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Camera = workspace.CurrentCamera
+local Toggle = getgenv().DNS.Key360.Toggle
+local RotationSpeed = getgenv().DNS.Key360.RotationSpeed
+local Keybind = getgenv().DNS.Key360.Keybind
+
+local function OnKeyPress(Input, GameProcessedEvent)
+    if Input.KeyCode == Keybind and not GameProcessedEvent then 
+        Toggle = not Toggle
+    end
+end
